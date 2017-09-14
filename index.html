@@ -149,17 +149,26 @@ background-image: url(img/alphacen2.gif)
 
 ---
 
-&lt;video autoplay loop width="100%" src="vid/alpha-cen-orbits.mp4"&gt;
+class: middle
+video: autoplay
+
+&lt;video width="100%" src="vid/alpha-cen-orbits.mp4"&gt;
 
 ---
 
 ---
 
-&lt;video autoplay loop width="100%" src="vid/sunrise.mp4"&gt;
+class: middle
+video: autoplay
+
+&lt;video width="100%" src="vid/sunrise.mp4"&gt;
 
 ---
 
-&lt;video autoplay loop width="100%" src="vid/sunset.mp4"&gt;
+class: middle
+video: autoplay
+
+&lt;video width="100%" src="vid/sunset.mp4"&gt;
 
 ---
 
@@ -171,6 +180,15 @@ h t t p : / / i l i k e . e a r t h c l o u d s . b e s t
 
     </textarea>
     <script src="remark-latest.min.js"></script>
-    <script>var slideshow = remark.create();</script>
+    <script>
+var slideshow = remark.create();
+slideshow.on('showSlide', function(slide) {
+  if (slide.properties.video === 'autoplay') {
+    var slideEl = document.querySelectorAll('.remark-slide-container')[slide.getSlideIndex()];
+    var video = slideEl.getElementsByTagName('video')[0];
+    video.play();
+  }
+})
+    </script>
   </body>
 </html>
